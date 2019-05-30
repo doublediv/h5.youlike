@@ -31,10 +31,9 @@ $(function () {
 		// 发展历程
 		$('.development').find('.development-content').eq(0).show();
 		$('.development-year').find('li').eq(0).addClass('cur');
-		$('.development-year').find('li').on("click", function(){
+		$('.development-year').find('li').on("click", function () {
 			$(this).addClass('cur').siblings().removeClass('cur');
 			$('.development').find('.development-content').hide().eq($(this).index()).show();
-			console.log($(this).data().img)
 			$('.development').find('.img-box img').attr("src", $(this).data().img)
 		});
 		var development_swiper = new Swiper('.swiper-container', {
@@ -51,39 +50,83 @@ function reCall() {
 	if (bow < 1023) {
 		// 移动端
 		// 导航
-		$('.header').find('.menu').click(function () {
+		$('.menu').on("click", function () {
+			if ($('.search-box').is(':visible')) {
+				$('.search-box').stop(false, true).slideUp(300);
+			} else {
+				$('.nav-mask').stop(false, true).slideToggle(300);
+			}
+			$('.nav').stop(false, true).slideToggle(300);
 			$(this).toggleClass('cur');
-			$('.nav,.nav-mask').stop(false, true).slideToggle(300);
 			$('.nav').find('.sub-nav').slideUp();
-			$('.header').find('.language,.code').toggle();
+			$('.language,.code').toggle();
 		});
-		$('.header').find('.search').click(function () {
+		$('.search').on("click", function () {
+			if ($('.nav').is(':visible')) {
+				$('.nav').slideUp().find('.sub-nav').stop(false, true).slideUp(300);
+				$('.language,.code').hide();
+				$('.menu').removeClass('cur');
+			} else {
+				$('.nav-mask').stop(false, true).slideToggle(300);
+			}
 			$(this).find('.search-box').stop(false, true).slideToggle(300);
-			$('.nav-mask').stop(false, true).slideToggle(300);
 		});
-        $('.nav').find('li').each(function () {
-            if ($(this).find('.sub-nav').length > 0) {
-                $(this).addClass('more').on('click', function () {
-                    $(this).siblings().find('.sub-nav').stop(false, true).slideUp(300);
-                    $(this).siblings().find('h3').removeClass('cur');
-                    $(this).find('h3').toggleClass('cur').siblings().stop(false, true).slideToggle(300);
-                });
-                $(this).find('h3 a').click(function (e) {
-                    if(e.preventDefault){
-                        e.preventDefault();
-                    }else{
-                        e.returnValue = false;
-                    }
-                });
-            }
-        });
+		$('.nav').find('li').each(function () {
+			if ($(this).find('.sub-nav').length > 0) {
+				$(this).addClass('more').on('click', function () {
+					$(this).siblings().find('.sub-nav').stop(false, true).slideUp(300);
+					$(this).siblings().find('h3').removeClass('cur');
+					$(this).find('h3').toggleClass('cur').siblings().stop(false, true).slideToggle(300);
+				});
+				$(this).find('h3 a').click(function (e) {
+					if (e.preventDefault) {
+						e.preventDefault();
+					} else {
+						e.returnValue = false;
+					}
+				});
+			}
+		});
 		// 内页导航
 		$(".inner-nav").find(".item:not(:last-child)").hide();
 		$(".inner-nav .item").off().on("click", ".title", function () {
 			$(this).parent().find('.nav-list').stop(false, true).slideToggle();
 		});
+		// 产品中心
+		$(".product-type .m-title").off().on("click", function () {
+			$(this).parent().find('.type-list').stop(false, true).slideToggle();
+		});
+
 	} else {
 		// pc端
+		// 头部导航
+		$('.nav li').on({
+			"mouseenter": function () {
+				$(this).find('.sub-nav').stop(true, true).slideDown();
+			},
+			"mouseleave": function () {
+				$(this).find('.sub-nav').stop(true, true).hide(0);
+			}
+		});
+		// 侧边导航
+		$(".menu").off().on('click',function(){
+			$('.nav-mask, .pc-nav-box, .pc-nav-box .nav-list').addClass('cur');
+		});
+		$('.pc-nav-box').find('.close').off().on("click", function(){
+			$('.nav-mask, .pc-nav-box, .pc-nav-box .nav-list').removeClass('cur');
+		});
+		$('.pc-nav-box .nav-list li h3 a').on("click", function(e){
+			if($(this).parents("li").find(".sub-nav").length){
+				if (e.preventDefault) {
+					e.preventDefault();
+				} else {
+					e.returnValue = false;
+				}
+				
+				$(this).parents("li").siblings().find(".sub-nav").stop(false,true).slideUp();
+				$(this).parents("li").find(".sub-nav").stop(false,true).slideToggle();
+			}
+		});
 		// 内页导航
 		$(".inner-nav").find(".item:not(:last-child)").show();
 		$(".inner-nav .item").off().on({
@@ -94,6 +137,8 @@ function reCall() {
 				$(this).find('.nav-list').stop(true, true).hide(0);
 			}
 		});
+		// 产品中心
+		$(".product-type .m-title").off();
 	}
 
 
@@ -120,18 +165,18 @@ function reCall() {
 		}
 	} else {
 		// 产品详情
-		$(".product-detail .img-list").on("mouseenter", "a", function () {
-			// console.log($(this).data().src)
+		$(".product-detail .img-list").off().on("mouseenter", "a", function () {
 			$(".product-img-pc img").attr("src", $(this).data().src);
 		})
 	}
 }
 // 窗口重置
 $(window).resize(function () {
-	$('.header').find('.nav li,.nav li h3 a').off();
-    $('.header').find('.menu,.nav h3').removeClass('cur');
-    $('.header').find('.nav,.sub-nav,.search-box,.code,.language').removeAttr('style');
-    $('.nav-mask').removeAttr('style');
+	$('.nav li,.nav li h3 a,.menu,.search').off();
+	$('.nav li').removeClass('more');
+	$('.menu,.nav h3, .nav-mask, .pc-nav-box, .pc-nav-box .nav-list').removeClass('cur');
+	$('.nav,.sub-nav,.search-box,.code,.language').removeAttr('style');
+	$('.nav-mask').removeAttr('style');
 	reCall();
 });
 
