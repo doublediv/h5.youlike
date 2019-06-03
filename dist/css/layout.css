@@ -201,7 +201,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
 
 .white-bg { background-color: #fff; }
 
-.nav-mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffff; z-index: 2; display: none; }
+.nav-mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffff; z-index: 10; display: none; }
 
 .clear-header { height: 46px; }
 
@@ -289,7 +289,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
 
 .index-banner li .commonweb .num-data-box .item .num span { font-size: 12px; margin-left: 2px; }
 
-.index-banner .next-banner { position: absolute; z-index: 3; left: 50%; -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); transform: translateX(-50%); width: 12px; height: 50px; background: url(../images/ximg104.png) no-repeat center; -o-background-size: 100% 100%; background-size: 100% 100%; bottom: 40%; -webkit-animation: nextBanner 3s ease-out infinite; -moz-animation: nextBanner 3s ease-out infinite; -o-animation: nextBanner 3s ease-out infinite; animation: nextBanner 3s ease-out infinite; }
+.index-banner .next-banner { position: absolute; z-index: 3; left: 50%; -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); transform: translateX(-50%); width: 12px; height: 50px; background: url(../images/ximg104.png) no-repeat center; -o-background-size: 100% 100%; background-size: 100% 100%; bottom: 40%; -webkit-animation: nextBanner 3s ease-out infinite; -moz-animation: nextBanner 3s ease-out infinite; -o-animation: nextBanner 3s ease-out infinite; animation: nextBanner 3s ease-out infinite; display: none; }
 
 .index-banner .progress .swiper-pagination-progressbar { background-color: #3136b6; }
 
@@ -351,7 +351,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
 
 .index-more { display: block; margin: 0 auto; width: 180px; line-height: 46px; border: 1px solid #d6d7db; padding-left: 15px; background: #fff url(../images/ximg106.png) no-repeat 80%; }
 
-.index-about { padding: 30px 0; background: url(../images/ximg09.jpg) no-repeat center; -o-background-size: cover; background-size: cover; }
+.index-about { padding-top: 30px; background: url(../images/ximg09.jpg) no-repeat center; -o-background-size: cover; background-size: cover; }
 
 .index-about .about-title { color: #fff; margin-bottom: 15px; font-size: 16px; }
 
@@ -412,6 +412,8 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
 .index-history .thumbs-box .history-thumbs .swiper-slide.swiper-slide-active::after { background-color: #0087f0; display: block; }
 
 .index-apparea { padding: 40px 0 35px; background: url(../images/ximg15.jpg) no-repeat bottom; -o-background-size: inherit; background-size: inherit; }
+
+.index-apparea .apparea-list li { margin-bottom: 15px; }
 
 .index-apparea .apparea-list li .img-box img { display: block; width: 100%; -webkit-transition: all .3s; -o-transition: all .3s; -moz-transition: all .3s; transition: all .3s; }
 
@@ -566,6 +568,34 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
 .solution-moudule .case a .content .name { display: block; font-size: 18px; line-height: 40px; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; }
 
 .solution-moudule .case a .content .info { font-size: 16px; line-height: 30px; color: #808080; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+
+.video-player-popup { display: none; position: fixed; left: 0; top: 0; z-index: 101; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); font-size: 0; text-align: center; }
+
+.video-player-popup:before { content: ''; width: 0; height: 100%; display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; }
+
+.video-player-popup .video-player { position: relative; width: 94%; min-height: 300px; max-width: 960px; margin-top: 0; display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; }
+
+.video-player-popup .close { position: absolute; right: 0; top: -40px; width: 40px; height: 40px; background: url(../images/ximg124.png) no-repeat center; }
+
+.full-honorA-popup { display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 99; background-color: rgba(0, 0, 0, 0.5); }
+
+.full-honorA-popup .honorA-wrap { position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%); z-index: 10; width: 94%; height: 80%; max-width: 800px; background: #fff; }
+
+.full-honorA-popup .honorA-wrap.image-pop { height: auto; max-height: 80%; }
+
+.full-honorA-popup .honorA-wrap li { text-align: center; font-size: 0; }
+
+.full-honorA-popup .honorA-wrap li:before { content: ''; display: inline-block; vertical-align: middle; width: 0; height: 100%; }
+
+.full-honorA-popup .honorA-wrap li img { display: inline-block; vertical-align: middle; width: auto; height: auto; max-width: 100%; width: 100%; }
+
+.full-honorA-popup .honorA-wrap li img.lanky { width: auto; max-height: 100%; height: 100%; }
+
+.full-honorA-popup .honorA-popupsw { height: 100%; }
+
+.full-honorA-popup .image-pop h4 { background-color: #fff; line-height: 60px; font-size: 18px; color: #363636; }
+
+.full-honorA-popup .image-pop-close { width: 30px; height: 30px; background: url(../images/ximg124.png) center no-repeat; -o-background-size: 12px auto; background-size: 12px auto; -webkit-border-radius: 50%; border-radius: 50%; position: absolute; right: -10px; top: -30px; -webkit-box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1); box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1); }
 
 .product-type { padding-top: 45px; position: relative; }
 
@@ -829,6 +859,8 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
 
 .jod-line .line-list li .content .tel { font-size: 18px; }
 
+.jod-line .line-list li .content .tel a { color: #fff; }
+
 .about-banner { position: relative; }
 
 .about-banner .bg { position: absolute; z-index: 3; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%); max-width: none; min-width: 10%; max-height: 100%; }
@@ -943,7 +975,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
 
 .development-honor .honor-content { background-color: #0087f0; padding: 10px; color: #fff; }
 
-.development-honor .honor-content .title { position: relative; font-size: 18px; font-weight: 700; padding: 20px 0 15px; margin-bottom: 15px; }
+.development-honor .honor-content .title { position: relative; font-size: 30px; font-weight: 700; padding: 20px 0 15px; margin-bottom: 15px; }
 
 .development-honor .honor-content .title::after { content: ""; position: absolute; left: 0; bottom: 0; width: 64px; height: 3px; background-color: #f08300; }
 
@@ -951,7 +983,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
 
 .development-honor .honor-content .content .honner-p { margin-bottom: 15px; }
 
-.development-honor .honor-content .but { display: block; background-color: #fff; -webkit-border-radius: 5px; border-radius: 5px; width: 190px; line-height: 46px; font-size: 18px; text-align: center; color: #0087f0; margin: 26px 0; border: 1px solid transparent; }
+.development-honor .honor-content .but { display: block; background-color: #fff; -webkit-border-radius: 5px; border-radius: 5px; width: 120px; line-height: 32px; font-size: 16px; text-align: center; color: #0087f0; margin: 26px 0; border: 1px solid transparent; }
 
 .chairman { padding: 36px 0 60px; }
 
@@ -1005,7 +1037,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
   .index-cooperate { padding: 53px 0 56px; }
   .index-cooperate ul li { width: 33.333%; }
   .index-apparea { -o-background-size: contain; background-size: contain; }
-  .index-apparea .apparea-list li { position: relative; }
+  .index-apparea .apparea-list li { position: relative; margin-bottom: 0; }
   .index-apparea .apparea-list li .searver-content, .index-apparea .apparea-list li .img-box { width: 50%; }
   .index-apparea .apparea-list li .searver-content { height: auto; position: static; }
   .index-apparea .apparea-list li .searver-content .center-box { width: 50%; padding: 0 20px; }
@@ -1278,6 +1310,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
   .footer .right .copry a:hover { text-decoration: underline; }
   .footer .right .share { float: right; }
   .footer .right .share img { width: 32px; display: inline-block; font-size: 0; margin: 0 5px; }
+  .index-banner .next-banner { display: block; }
   .index-product li { -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; }
   .index-product li a .img-box { width: 100%; height: 375px; overflow: hidden; position: relative; }
   .index-product li a .img-box img { position: absolute; z-index: 3; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%); max-width: none; min-width: 100%; max-height: 100%; -webkit-transition: all 0.3s; -o-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
@@ -1382,7 +1415,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0) inse
   .development-honor .honor-content { padding: 52px 52px 74px 69px; }
   .development-honor .honor-content .title { padding: 0 0 30px; margin-bottom: 35px; font-size: 36px; line-height: 50px; }
   .development-honor .honor-content .content .honner-p { margin-bottom: 30px; }
-  .development-honor .honor-content .but { margin: 55px 0 0; }
+  .development-honor .honor-content .but { margin: 55px 0 0; width: 190px; line-height: 46px; font-size: 18px; }
   .development-honor .honor-content .but:hover { background-color: transparent; border: 1px solid #fff; color: #fff; } }
 
 @media (min-width: 1200px) { .index-about .box { width: 66.66%; max-width: 680px; }

@@ -15,14 +15,14 @@ $(function () {
 			var nextEl = ".next_" + index;
 			var prevEl = ".prev_" + index;
 			swiper = swiperBox($(this), 3, 20, nextEl, prevEl);
-			$(this).on({
-				mouseenter: function () {
-					swiper.stopAutoplay();
-				},
-				mouseleave: function () {
-					swiper.startAutoplay();
-				}
-			});
+			// $(this).on({
+			// 	mouseenter: function () {
+			// 		swiper.stopAutoplay();
+			// 	},
+			// 	mouseleave: function () {
+			// 		swiper.startAutoplay();
+			// 	}
+			// });
 		});
 	}
 	// 关于我们

@@ -162,12 +162,12 @@
             <div class="item">
                 <h3 class="title">民用建筑</h3>
                 <ul class="nav-list">
-					<li><a href="解决方案.html">民用建筑</a></li>
-					<li><a href="解决方案.html">工业厂房</a></li>
-					<li><a href="解决方案.html">轨道交通</a></li>
-					<li><a href="解决方案.html">综合管廊</a></li>
-					<li><a href="解决方案.html">BIM应用</a></li>
-				</ul>
+                    <li><a href="解决方案.html">民用建筑</a></li>
+                    <li><a href="解决方案.html">工业厂房</a></li>
+                    <li><a href="解决方案.html">轨道交通</a></li>
+                    <li><a href="解决方案.html">综合管廊</a></li>
+                    <li><a href="解决方案.html">BIM应用</a></li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -276,7 +276,7 @@
             <div class="swiper-container swiper-box install-video">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <a href="javascript:;">
+                        <a href="javascript:;" data-video="https://www.cosmo-lady.com/Uploads/video/极致融合.mp4">
                             <div class="img-box">
                                 <div class="play-icon"><img src="dist/images/ximg10.png" alt="" /></div>
                                 <img src="dist/images/ximg11.png" alt="" />
@@ -285,27 +285,27 @@
                         </a>
                     </li>
                     <li class="swiper-slide">
-                        <a href="javascript:;">
+                        <a href="javascript:;" data-video="https://www.cosmo-lady.com/Uploads/video/极致融合.mp4">
                             <div class="img-box">
-                                 <div class="play-icon"><img src="dist/images/ximg10.png" alt="" /></div>
+                                <div class="play-icon"><img src="dist/images/ximg10.png" alt="" /></div>
                                 <img src="dist/images/ximg11.png" alt="" />
                             </div>
                             <span>安装视频</span>
                         </a>
                     </li>
                     <li class="swiper-slide">
-                        <a href="javascript:;">
+                        <a href="javascript:;" data-video="https://www.cosmo-lady.com/Uploads/video/极致融合.mp4">
                             <div class="img-box">
-                                 <div class="play-icon"><img src="dist/images/ximg10.png" alt="" /></div>
+                                <div class="play-icon"><img src="dist/images/ximg10.png" alt="" /></div>
                                 <img src="dist/images/ximg11.png" alt="" />
                             </div>
                             <span>安装视频</span>
                         </a>
                     </li>
                     <li class="swiper-slide">
-                        <a href="javascript:;">
+                        <a href="javascript:;" data-video="https://www.cosmo-lady.com/Uploads/video/极致融合.mp4">
                             <div class="img-box">
-                                 <div class="play-icon"><img src="dist/images/ximg10.png" alt="" /></div>
+                                <div class="play-icon"><img src="dist/images/ximg10.png" alt="" /></div>
                                 <img src="dist/images/ximg11.png" alt="" />
                             </div>
                             <span>安装视频</span>
@@ -364,24 +364,140 @@
             </div>
         </div>
     </article>
+    <!-- 视频弹窗 -->
+    <div class="video-player-popup">
+        <div class="video-player">
+            <div class="video" id="video"></div>
+            <a href="javascript:;" class="close"></a>
+        </div>
+    </div>
+    <!--图片弹窗-->
+    <div class="full-honorA-popup">
+        <div class="honorA-wrap image-pop">
+            <div class="honorA-popupsw swiper-container">
+                <ul class="swiper-wrapper honorAsw-wrapper"></ul>
+            </div>
+            <div class="honorA-pages"></div>
+            <a href="javascript:;" class="image-pop-close"></a>
+        </div>
+    </div>
+
+
 
     <footer class="footer">
     <div class="commonweb clearfix">
         <div class="left">
-            <img src="dist/images/ximg15.png" alt="400-666-1688" />
+            <a href="tel:400-666-1688"><img src="dist/images/ximg15.png" alt="400-666-1688" /></a>
             <p>中国.广东省.深圳市光明新区公明合水口</p>
             <p>民乐科技园</p>
         </div>
         <div class="right clearfix">
             <div class="copry">
                 <p><span>优力可科技股份有限公司 版权所有</span><a href="javascript:;">联系我们</a><a href="javascript:;">免责条款</a> <a href="javascript:;">法律声明</a></p>
-                <p><a href="javascript:;">粤ICP备17023230</a></p>
+                <p><a href="http://www.beian.gov.cn/portal/index?token=cfae94da-1f2c-4ff8-9ebe-593f021469e4" target="_blank">粤ICP备17023230</a></p>
             </div>
             <div class="share mob-hidden"><a href="javascript:;"><img src="dist/images/ximg16.png" alt="" /></a><a href="javascript:;"><img src="dist/images/ximg17.png" alt="" /></a></div>
         </div>
     </div>
 </footer>
 <script type="text/javascript" src="dist/js/layout.js"></script>
+    <script type="text/javascript" src="/dist/js/ckplayer.js"></script>
+    <script>
+        // 视频
+        var videoObject = {
+            container: '#video',
+            variable: 'player',
+            autoplay: true, //是否自动播放
+        };
+
+        function videoplayerX($showbtn, $hidebtn) {
+            var player;
+            $(document).on('click', $showbtn, function () {
+                console.log(11)
+                if ($(this).data('video')) {
+                    videoObject.video = $(this).data('video');
+                    player = null;
+                    $('.video-player-popup').fadeIn(300);
+                    player = new ckplayer(videoObject);
+                }
+            });
+            $(document).on('click', $hidebtn, function () {
+                player && player.videoPause();
+                $('.video-player-popup').fadeOut(300);
+                $("#operate-video").html("");
+            });
+        }
+        videoplayerX('.install-video li a', '.video-player-popup .close');
+        // 图片
+        function popuplist($showbtn) {
+
+
+            $(document).on('click', $showbtn, function () {
+                if ($('.full-honorA-popup').length > 0) {
+                    var clickIndex = $(this).index();
+                    //var newLen = $('.honorA-list li').length;
+                    // if (newLen > copyOldLen) {
+                    copyOldLen = getSlide($(this).parent(), $('.honorA-wrap'));
+                    // }
+                    honorACopySwiper && honorACopySwiper.update();
+                    $('.full-honorA-popup').stop().fadeIn();
+                    honorACopySwiper && honorACopySwiper.slideTo(clickIndex, 0);
+                }
+            });
+
+
+
+        }
+        function getSlide($imgTarget, $popupWrap, start) {
+            start = start || 0;
+            var $thumbs = $imgTarget.find('img');
+            var $thumbstit = $imgTarget.find('span');
+            var slideLength = $thumbs.length;
+            var $thumbSwiper = $popupWrap.find('.swiper-wrapper');
+            var warpW = $(window).width() * 0.94;
+            hwRate = $(window).height() * 0.8 / (warpW > 800 ? 800 : warpW);
+            $thumbSwiper.html('');
+            for (start = 0; start < slideLength; start++) {
+                var $item = $('<li class="swiper-slide"><img src="' + $thumbs[start].src + '"><h4>' + $thumbstit[start].innerText + '</h4></li>');
+                isImgLanky($item.find('img').eq(0), hwRate);
+                $thumbSwiper.append($item);
+            }
+            return start;
+        }
+        function isImgLanky($img, hwRate) {
+            var img = new Image(),
+                imgW, imgH;
+            img.src = $img.attr('src');
+            if (img.complete) {
+                imgW = img.width;
+                imgH = img.height;
+                if (hwRate < imgH / imgW) {
+                    $img.addClass('lanky');
+                }
+            } else {
+                img.onload = function () {
+                    imgW = img.width;
+                    imgH = img.height;
+                    if (hwRate < imgH / imgW) {
+                        $img.addClass('lanky');
+                    }
+                };
+            }
+        }
+        var honorACopySwiper = new Swiper(".honorA-popupsw", {
+            loop: false,
+            observer: true,
+            observeParents: true,
+            //			prevButton: '.honorA-prev',
+            //			nextButton: '.honorA-next',
+            // pagination: '.honorA-pages'
+        });
+        popuplist(".solution-moudule .install li");
+
+        $(document).on('click', '.image-pop-close', function () {
+            $('.full-honorA-popup').stop().fadeOut();
+        });
+    </script>
 </body>
 
 </html>
