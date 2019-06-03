@@ -7,9 +7,9 @@ h1, h2, h3, h4, h5, h6, p, dl, dt, dd { margin: 0; padding: 0; font-weight: norm
 /* mY 英文版的转码*/
 body { font-family: tahoma, arial, 'Hiragino Sans GB','Microsoft YaHei','\5FAE\8F6F\96C5\9ED1','\5b8b\4f53', sans-serif; font-size: 14px; margin: 0px; padding: 0px; color: #333; line-height: 22px; height: auto; clear: both; overflow-x: hidden; }
 
-img { border: 0px; }
+img { border: none; }
 
-html { -webkit-tap-highlight-color: transparent; -ms-text-size-adjust: 100%; /* 2 */ -webkit-text-size-adjust: 100%; /* 2 */ -webkit-font-smoothing: antialiased; }
+html { overflow-x: hidden; -webkit-tap-highlight-color: transparent; -ms-text-size-adjust: 100%; /* 2 */ -webkit-text-size-adjust: 100%; /* 2 */ -webkit-font-smoothing: antialiased; }
 
 *, :after, :before { box-sizing: border-box; background-repeat: no-repeat; }
 

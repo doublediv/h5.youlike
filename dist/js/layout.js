@@ -1,4 +1,13 @@
 $(function () {
+	// 头部
+	$(window).scroll(function(){
+		var top = $(document).scrollTop();
+		if(top > 46){
+			$(".header").addClass('cur');
+		}else{
+			$(".header").removeClass('cur');
+		}
+	});
 	// 解决方案
 	if ($('.swiper-box').length) {
 		$('.swiper-box').each(function (index) {
